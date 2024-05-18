@@ -1,0 +1,69 @@
+DROP TABLE if exists Student;
+DROP TABLE if exists PhoneNums;
+DROP TABLE if exists Faculty;
+DROP TABLE if exists CourseCatalog;
+DROP TABLE if exists CourseSection;
+DROP TABLE if exists Takes;
+
+
+
+
+
+
+
+CREATE TABLE Student (
+	Stu_id char(8)  not null,
+	SName varchar(40) not null,
+	Faculty_ID char(8),
+	PRIMARY KEY (Stu_id),
+	FOREIGN KEY (Faculty_ID) References Faculty
+);
+
+CREATE TABLE PhoneNums (
+	Stu_id char(8),
+	Phone_Number char(10),
+	PRIMARY KEY (Phone_Number),
+	FOREIGN KEY (Stu_id) References Student(Stu_id)
+);
+
+CREATE TABLE Faculty (
+	Faculty_ID char(8) not null,
+	Fname varchar(40),
+	PRIMARY KEY (Faculty_ID)
+);
+
+CREATE TABLE CourseCatalog (
+	Deptnum char(3) not null,
+	Coursenum char(3) not null,
+	Description varchar(255),
+	Title varchar(100),
+	PRIMARY KEY (Deptnum, Coursenum)
+);
+
+CREATE TABLE CourseSection (
+	Deptnum char(3) not null,
+	Coursenum char(3) not null,
+	Semester tinyint(255) not null,
+	Section char(3) not null,
+	Year char(4) not null,
+	Faculty_ID char(8),
+	Online BOOL,
+	PRIMARY KEY(Deptnum, Coursenum, Semester,Section, Year),
+	FOREIGN KEY (Faculty_ID) References Faculty(Faculty_ID),
+	FOREIGN KEY (Deptnum, Coursenum) References CourseCatalog(Deptnum, Coursenum)
+);
+
+CREATE TABLE Takes (
+	Stu_id char(8) not null,
+	Deptnum char(3) not null,
+	Coursenum char(3) not null,
+	Section char(3) not null,
+	Semester tinyint(255) not null,
+	Year char(4) not null,
+	Grade tinyint(255),
+	
+	PRIMARY KEY (Stu_id, Deptnum, Coursenum),
+	FOREIGN KEY (Stu_id) References Student(Stu_id),
+	FOREIGN KEY (Deptnum, Coursenum) References CourseCatalog(Deptnum, Coursenum),
+	FOREIGN KEY (Section, Semester, Year) References CourseSection(Section, Semester, Year)
+);

@@ -1,0 +1,1 @@
+This project was an exercise in creating and inputing data into a database. Specifically looking at compiling data for a school.

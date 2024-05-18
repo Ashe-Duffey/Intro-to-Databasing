@@ -1,0 +1,6 @@
+
+
+
+Query 1: SELECT Title, CourseCatalog.Deptnum, CourseCatalog.Coursenum FROM CourseSection, CourseCatalog WHERE Online = 1 AND CourseSection.Deptnum = CourseCatalog.Deptnum AND CourseSection.Coursenum = CourseCatalog.Coursenum;
+
+Query 2: SELECT SName, Student.Stu_id FROM Takes, Student WHERE Deptnum = 'MAT' AND Coursenum = '300' AND Takes.Stu_id = Student.Stu_id;

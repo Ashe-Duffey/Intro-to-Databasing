@@ -1,0 +1,30 @@
+
+INSERT INTO Faculty VALUES
+	('125sd358', 'Pythagoras Triangle'),
+	('12345678', 'Albert Einstein'),
+	('450at879', 'Alan Turing'); 
+
+INSERT INTO Student VALUES 
+	('87654321', 'Aristotle', '12345678'),
+	('456asd12', 'Bruno Mars', '12345678'),
+	('randomid', 'Randy Randomonius', '125sd358');
+
+INSERT INTO PhoneNums VALUES
+	('87654321', '7244658235'),
+	('87654321', '4125555555'),
+	('randomid', '1234567890');
+
+INSERT INTO CourseCatalog VALUES
+	('MAT', '300', 'Learn statistics in a fun and interesting way!', 'Statistics'),
+	('BAS', '430', 'Embrace a new and innovative artform.', 'Underwater basket weaving'),
+	('MUS', '160', 'learn a number of birdcalls.', 'Whistling fundamentals');
+
+INSERT INTO CourseSection VALUES
+	('MAT', '300', 2, '001', '2023', '450at879', 0), 
+	('MUS', '160', 2, '001', '2023', '12345678', 0),
+	('MUS', '160', 2, '002', '2023', '13545687', 1);
+
+INSERT INTO Takes VALUES
+	('87654321','MUS','160','001', 2,'2023', 100),
+	('87654321','MAT','300','001', 2,'2023', 50),
+	('randomid','MAT','300','001', 2,'2023', 80);
