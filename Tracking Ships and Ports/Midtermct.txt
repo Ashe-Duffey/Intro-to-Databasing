@@ -1,0 +1,17 @@
+if exists DROP TABLE Port;
+
+CREATE TABLE Port (
+	Portname varchar(40),
+	Tonnage int(255),
+	Countryname varchar(40)
+	PRIMARY KEY (Portname)
+);
+
+CREATE TABLE Ship (
+	Shipname varchar(40),
+	Portname varchar(40),
+	Owner varchar(40),
+	Tonnage int(255),
+	PRIMARY KEY (Shipname, Portname),
+	FOREIGN KEY (Portname) references Port
+);
